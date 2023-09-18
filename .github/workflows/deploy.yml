@@ -1,0 +1,30 @@
+name: Deploy package to PyPI
+on:
+  release:
+    types: [published]
+jobs:
+  build_n_deploy:
+    name: Build an push package
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🐙 Checkout Git repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: 🔦 Github Enhanced env vars
+        uses: FranzDiebold/github-env-vars-action@v2
+      - name: 🐍 Setup python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: 📦 Build version
+        run: |
+          pip install --upgrade build
+          python -m build --version
+          version=$(echo ${{ env.CI_REF_NAME }} | sed 's/^v//')
+          sed -i "s/{{VERSION_PLACEHOLDER}}/${version}/g" pyproject.toml
+          python -m build
+      - name: 🚀 Release to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}

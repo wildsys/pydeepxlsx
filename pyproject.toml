@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pydeepxlsx"
+authors = [
+    {name = "WildSys", email = "hello@wildsys.io"}
+]
+description = "XLSX file as a template"
+requires-python = ">=3.9"
+keywords = ["cloud pubsub", "tasks", 'flask']
+classifiers = [
+    "Framework :: Flask",
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = [
+    "flask>=2.2,<2.3",
+    "google-cloud-pubsub==2.14.1",
+    "google-cloud-storage==2.7.0"
+]
+version = "{{VERSION_PLACEHOLDER}}"
+
+[project.urls]
+"Homepage" = "https://github.com/wildsys/pydeepxlsx"
+"Bug Tracker" = "https://github.com/wildsys/pydeepxlsx/issues"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["error"]

@@ -1,0 +1,23 @@
+name: Release application
+on:
+  push:
+    branches:
+      - main
+jobs:
+  pypi:
+    name: Create release tag
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🐙 Checkout Git repository
+        uses: actions/checkout@v3
+      - name: 🔖 Semantic release
+        uses: codfish/semantic-release-action@v2
+        with:
+          branches: |
+            [ 'main' ]
+          additional_packages: |
+            [ '@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/github', '@semantic-release/git' ]
+          plugins: |
+            [ '@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/github', '@semantic-release/git' ]
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}

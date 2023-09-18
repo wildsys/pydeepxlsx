@@ -8,6 +8,7 @@ authors = [
     {name = "WildSys", email = "hello@wildsys.io"}
 ]
 description = "XLSX file as a template"
+long_description = "XLSX file as a template"
 requires-python = ">=3.9"
 keywords = ["cloud pubsub", "tasks", 'flask']
 classifiers = [

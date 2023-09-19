@@ -9,17 +9,14 @@ authors = [
 ]
 description = "XLSX file as a template"
 requires-python = ">=3.9"
-keywords = ["cloud pubsub", "tasks", 'flask']
+keywords = ['xlsx', 'copy']
 classifiers = [
-    "Framework :: Flask",
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent"
 ]
 dependencies = [
-    "flask>=2.2,<2.3",
-    "google-cloud-pubsub==2.14.1",
-    "google-cloud-storage==2.7.0"
+    "openpyxl>=3.0,<3.1"
 ]
 version = "{{VERSION_PLACEHOLDER}}"
 

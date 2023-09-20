@@ -16,7 +16,8 @@ classifiers = [
     "Operating System :: OS Independent"
 ]
 dependencies = [
-    "openpyxl>=3.0,<3.1"
+    "openpyxl>=3.0,<3.1",
+    "python-slugify>=8.0,<8.1"
 ]
 version = "{{VERSION_PLACEHOLDER}}"
 
